@@ -424,6 +424,10 @@ else if ticktype := "Catalog Task"
 	Send, I will close the ticket now, have a great day :)
 	return
 
+	^#!k::
+		Send, user has confirmed - software installed successfully
+		return
+
 ^#!f:: ;search for string in SNOW
 	clipboard :=
 	Send, ^c
@@ -433,36 +437,9 @@ else if ticktype := "Catalog Task"
 	Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
 	return
 
-^#!k::
-	Send, user has confirmed - software installed successfully
-	return
 
-^#!p::
-	InputBox, KeySt, acc?
-	if (KeySt = "a")
-		{
-		usrnm = amc
-		pass = amcpwd
-		}
-	else if (KeySt = "w")
-		{
-		usrnm = wg
-		pass= wgpwd
-		}
-	else if (KeySt = "p")
-		{
-		usrnm = plc
-		pass= plcpwd
-		}
-	return
 
-^#!y::
-	Send, %usrnm%
-	return
 
-^#!u::
-	Send, %pass%
-	return
 
 ^#!a::
 	InputBox, KeySt, action?
