@@ -120,6 +120,7 @@ chromePageWait()
 		Send, ^f
 		Sleep, 300
 		Send, Requested for
+		Send, {PgUp}
 		Sleep, 300
 		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
 		if ErrorLevel
@@ -158,10 +159,56 @@ chromePageWait()
 				Sleep, 500
 				Send, {Tab}
 				Send, ^c
+				Sleep, 300
 				ClipWait
 			}
 			InputBox, email, type in the email, is the email address correct?, , , , , , , , %clipboard%
-			
+			Send, {Esc} ;close the user info window
+
+			Sleep, 300
+			Send, ^f
+			Sleep, 300
+			Send, Affected Software Version
+			Sleep, 300
+			Send, {PgUp}
+			Sleep, 300
+			PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+			if ErrorLevel
+				{
+				PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+				if ErrorLevel
+					{
+					Sleep, 1000
+					Send, ^a
+					Send, {BackSpace}
+					Sleep, 1000
+					Send, Affected Software Version
+					Sleep, 1000
+					PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+					if ErrorLevel
+						{
+						PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+						if ErrorLevel
+							{
+							MsgBox, software not found
+							}
+						}
+					}
+				}
+			Send, {Esc}
+			if Px
+				{
+					MouseMove, %Px%, %Py%
+					Px =
+					Py =
+					Sleep, 300
+					Send, {LButton}{LButton}
+					Send, ^c
+					Sleep, 300
+					ClipWait
+
+				}
+			InputBox, softname, type in the softname, is the softname correct?, , , , , , , , %clipboard%
 		return
 	}
 
