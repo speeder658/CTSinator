@@ -472,7 +472,7 @@ else if ticktype := "Catalog Task"
 	Send, great! I'll close the ticket now, have a great day :)
 	return
 
-^#!f::
+^#!f:: ;search for string in SNOW
 	clipboard :=
 	Send, ^c
 	ClipWait
@@ -489,18 +489,18 @@ else if ticktype := "Catalog Task"
 	InputBox, KeySt, acc?
 	if (KeySt = "a")
 		{
-		usrnm = adm.m.sobocinski@amecfw.com
-		pass = MSWoodP@ssw0rd
+		usrnm = amc
+		pass = amcpwd
 		}
 	else if (KeySt = "w")
 		{
-		usrnm = adm.m.sobocinski@woodgroup.com
-		pass= MSWoodP@ssw0rd
+		usrnm = wg
+		pass= wgpwd
 		}
 	else if (KeySt = "p")
 		{
-		usrnm = adm.m.sobocinski@woodplc.com
-		pass= MSWoodP@ssw0rd
+		usrnm = plc
+		pass= plcpwd
 		}
 	return
 
@@ -533,11 +533,5 @@ else if ticktype := "Catalog Task"
 			InputBox, hostnamecmrc, type in the hostname, is the description correct?, , , , , , , , %clipboard%
 		run, "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe" %hostnamecmrc%
 		}
-	else if (KeySt = "netuse")
-		{
-			InputBox, netusepath, type in the path, is the path correct?, , , , , , , , %clipboard%
-			netusecmd = net use x: "%netusepath%" /user:adm.m.sobocinski@amecfw.com 658$peeDer@Hemm
-			InputBox, netusecmd, check the command, is the command correct?, , , , , , , , %netusecmd%
-		clipboard := netusecmd
-		}
+
 	return
