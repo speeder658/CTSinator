@@ -128,9 +128,10 @@ chromePageWait()
 			if ErrorLevel
 				{
 				Sleep, 1000
+				Send, ^a
 				Send, {BackSpace}
 				Sleep, 1000
-				Send, @
+				Send, Requested for
 				Sleep, 1000
 				PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
 				if ErrorLevel
@@ -143,6 +144,7 @@ chromePageWait()
 					}
 				}
 			}
+		Send, {Esc}
 		if Px
 			{
 				MouseMove, %Px%, %Py%
@@ -159,7 +161,7 @@ chromePageWait()
 				ClipWait
 			}
 			InputBox, email, type in the email, is the email address correct?, , , , , , , , %clipboard%
-
+			
 		return
 	}
 
