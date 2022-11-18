@@ -421,7 +421,7 @@ else if ticktype := "Catalog Task"
 		return
 
 ^#!b::
-	Send, great! I'll close the ticket now, have a great day :)
+	Send, I'll close the ticket now, have a great day :)
 	return
 
 ^#!f:: ;search for string in SNOW
