@@ -107,12 +107,65 @@ chromePageWait()
 
 		InputBox, desc, description, is the description correct?, , , , , , , , %clipboard%
 		finalmsg = Hello, I am writing in regard to %ticknum% - %desc%. Please let me know when would you be available for a remote session to resolve this issue.
+		MsgBox, %finalmsg%
+
+		return
 
 	}
+	else if ticktype = Catalog Task
+	{
+		MsgBox, SCTASK detected
+		Sleep, 300
+		Send, {PgUp}
+		Send, ^f
+		Sleep, 300
+		Send, Requested for
+		Sleep, 300
+		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+		if ErrorLevel
+			{
+			PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+			if ErrorLevel
+				{
+				Sleep, 1000
+				Send, {BackSpace}
+				Sleep, 1000
+				Send, @
+				Sleep, 1000
+				PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+				if ErrorLevel
+					{
+					PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+					if ErrorLevel
+						{
+						MsgBox, requested not found
+						}
+					}
+				}
+			}
+		if Px
+			{
+				MouseMove, %Px%, %Py%
+				Px =
+				Py =
+				Sleep, 300
+				Send, {LButton}
+				Sleep, 300
+				Send, {Tab}{Tab}
+				Send, {Enter}
+				Sleep, 500
+				Send, {Tab}
+				Send, ^c
+				ClipWait
+			}
+			InputBox, email, type in the email, is the email address correct?, , , , , , , , %clipboard%
 
-	MsgBox, %finalmsg%
+		return
+	}
 
-	return
+
+
+
 
 ^#!h::
 WinActivate, ahk_exe chrome.exe
