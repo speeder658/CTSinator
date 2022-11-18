@@ -209,6 +209,17 @@ chromePageWait()
 
 				}
 			InputBox, softname, type in the softname, is the softname correct?, , , , , , , , %clipboard%
+
+			MsgBox, 4, , Manual install?
+
+			IfMsgBox Yes
+				finalmsg = Hello, I am writing in regard to %ticknum% - %softname% install. Please let me know when would you be available for a remote session to install this software.
+			else IfMsgBox No
+				finalmsg = Hello, I am writing in regard to %ticknum% - %softname% install. I've added you to the proper AD group, the software should be available in your software center in 24h. Please let me know when it's available so I can close the ticket.
+
+			MsgBox, %finalmsg%
+
+
 		return
 	}
 
