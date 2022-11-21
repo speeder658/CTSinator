@@ -202,7 +202,11 @@ chromePageWait()
 					Px =
 					Py =
 					Sleep, 300
-					Send, {LButton}{LButton}
+					Send, {LButton}
+					clipboard :=
+					Sleep, 300
+					Send, ^a
+					Sleep, 300
 					Send, ^c
 					Sleep, 300
 					ClipWait
