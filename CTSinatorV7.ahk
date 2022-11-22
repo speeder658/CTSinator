@@ -122,7 +122,7 @@ chromePageWait()
 		Send, ^f
 		Sleep, 300
 		Send, Requested for
-		Send, {PgUp}
+		Send, {PgUp}{PgUp}{PgUp}
 		Sleep, 300
 		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
 		if ErrorLevel
@@ -160,6 +160,7 @@ chromePageWait()
 				Send, {Enter}
 				Sleep, 500
 				Send, {Tab}
+				clipboard :=
 				Send, ^c
 				Sleep, 300
 				ClipWait
@@ -280,14 +281,14 @@ if ticktype = Incident
 	InputBox, KeySth, hold reason?
 	if (KeySth = "u")
 	{
-		Send, {WheelUp 3}
+		Send, {PgUp}
 		Send, ^f ;SEARCHWINDOW_START
 		Sleep, 300
 		Send, {BackSpace}
 		Sleep, 300
 		Send, State
 		Sleep, 300
-		Send, {PgUp}
+		Send, {PgUp}{PgUp}{PgUp}
 		Sleep, 300
 		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
 		if ErrorLevel
@@ -364,17 +365,40 @@ if ticktype = Incident
 		Send, {BackSpace}
 		Send, Additional comments (Customer visible)
 		Sleep, 100
-		PixelSearch, Px, Py, 0, 126, 1095, 1038, 0x8b8c0e, , Fast RGB
+		PixelSearch, Px, Py, 0, 150, 1095, 1038, 0x8b8c0e, , Fast RGB
 		if ErrorLevel
 			{
-			MsgBox, color 404.
 			Send, ^f
+			Sleep, 300
 			Send, {BackSpace}
+			Sleep, 300
 			Send, Notes
-			PixelSearch, Pxn, Pyn, 0, 120, 242, 1036, 0x8b8c0e, , Fast RGB
-			MouseMove, %Pxn%, %Pyn%
+			Sleep, 300
+			PixelSearch, Px, Py, 0, 150, 360, 1036, 0xff9632, , Fast RGB
+			if ErrorLevel
+				{
+				PixelSearch, Px, Py, 0, 150, 360, 1036, 0xffff00, , Fast RGB
+				if ErrorLevel
+					{
+						Send, ^f
+						Sleep, 300
+						Send, {Enter}
+						Sleep, 300
+						PixelSearch, Px, Py, 0, 150, 360, 1036, 0xff9632, , Fast RGB
+						if ErrorLevel
+							{
+							PixelSearch, Px, Py, 0, 150, 360, 1036, 0xffff00, , Fast RGB
+							}
+					}
+				}
+			if Px
+				{
+	    	MouseMove, %Px%, %Py%
+				}
+				Px =
+				Py =
 			Send, {LButton}
-			Sleep, 200
+			Sleep, 300
 			Send, ^f
 			Send, {BackSpace}
 			Sleep, 100
@@ -383,7 +407,7 @@ if ticktype = Incident
 			PixelSearch, Px, Py, 0, 126, 1095, 1038, 0x8b8c0e, , Fast RGB
 			MouseMove, %Px%, %Py%
 			Send, {LButton}
-			MsgBox, all OK?
+			MsgBox, enter if text box ok
 			Send, Contacted user on Teams, waiting for reply
 			Send, {Esc}
 			}
@@ -460,11 +484,12 @@ else if ticktype := "Catalog Task"
 		Sleep, 100
 		PixelSearch, Px, Py, 0, 126, 1095, 1038, 0x8b8c0e, , Fast RGB
 		MouseMove, %Px%, %Py%
-		Sleep, 200
+		Sleep, 2000
 		Send, {LButton}
 		MsgBox, is this the correct text box?
-		Send, ^#!c
+		Send, Contacted user on Teams, waiting for reply
 		Send, {Esc}
+		return
 	}
 }
 
