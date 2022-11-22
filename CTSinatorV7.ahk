@@ -18,7 +18,7 @@ chromePageWait()
 	}
 
 
-^#!g::
+^#!g:: ;generate message to user
 	WinActivate, ahk_exe chrome.exe
 	WinWaitActive, ahk_exe chrome.exe
 	WinGetTitle, wintitle
@@ -264,7 +264,7 @@ chromePageWait()
 
 
 
-^#!h::
+^#!h:: ;hold the ticket
 WinActivate, ahk_exe chrome.exe
 WinWaitActive, ahk_exe chrome.exe
 WinGetTitle, wintitle
