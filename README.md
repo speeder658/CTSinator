@@ -3,9 +3,12 @@ AHK automated helping tool for CTS team for best results use chrome or change al
 
 functions:
 
+ctrl+windows+alt+x - panic button, press to stop script
+
 ctrl+windows+alt+g - message generator ran from a ticket main page in snow - incident or catalog task generate a message based on a ticket in service-now, works for me, might be buggy but if ironed out saves huge amounts of time
 
-ctrl+windows+alt+h - ticket holder same as above, used for putting tickets on hold with "Contacted user on Teams, waiting for reply" message
+ctrl+windows+alt+h - ticket holder same as above, used for putting tickets on hold , open text box allows for options:
+u - hold for user unavailable with message "Contacted user on Teams, waiting for reply"
 
 ctrl+windows+alt+f - finder, the most used by me - use instead of ctrl+c on a string you want to search for in snow. opens chrome, works only if you're logged in to snow in another tab
 
