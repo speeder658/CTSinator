@@ -3,6 +3,8 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+^#!x::
+ExitApp
 
 chromePageWait()
 	{
@@ -423,8 +425,8 @@ else if ticktype := "Catalog Task"
 		MouseMove, %Px%, %Py%
 		Sleep, 200
 		Send, {LButton}
-		MsgBox, all OK?
-		Send, Contacted user on Teams, waiting for reply
+		MsgBox, is this the correct text box?
+		Send, ^#!c
 		Send, {Esc}
 	}
 }
