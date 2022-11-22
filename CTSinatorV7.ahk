@@ -484,7 +484,7 @@ else if ticktype := "Catalog Task"
 		Sleep, 100
 		PixelSearch, Px, Py, 0, 126, 1095, 1038, 0x8b8c0e, , Fast RGB
 		MouseMove, %Px%, %Py%
-		Sleep, 2000
+		Sleep, 200
 		Send, {LButton}
 		MsgBox, is this the correct text box?
 		Send, Contacted user on Teams, waiting for reply
