@@ -287,6 +287,8 @@ if ticktype = Incident
 		Sleep, 300
 		Send, State
 		Sleep, 300
+		Send, {PgUp}
+		Sleep, 300
 		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
@@ -315,14 +317,49 @@ if ticktype = Incident
 				MsgBox, nopeerror
 				return
 			}
-		Sleep, 100
+		Sleep, 300
 		Send, {Down}
-		Sleep, 50
-		Send, {Tab 2}
-		Sleep, 50
+		Sleep, 500
+		Send, ^f ;SEARCHWINDOW_START
+		Sleep, 300
+		Send, {BackSpace}
+		Sleep, 300
+		Send, On Hold Reason
+		Sleep, 300
+		Send, {PgUp}
+		Sleep, 300
+		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
+		if ErrorLevel
+			{
+			PixelSearch, Px, Py, 908, 120, 1901, 577, 0xffff00, , Fast RGB
+			MouseMove, %Px%, %Py%
+			}
+		else
+    	MouseMove, %Px%, %Py%
+			Px =
+			Py =
+		Send, {LButton 3}
+		clipboard :=
+		Sleep, 100
+		Send, ^c
+		ClipWait
+		holdrsn := clipboard
+		isholdrsn := InStr(holdrsn, "On Hold Reason")
+		if isholdrsn = 0
+			{
+				MsgBox, nopeholdrsn
+				return
+			}
+
+		if ErrorLevel
+			{
+				MsgBox, nopeerror
+				return
+			}
+		Sleep, 300
 		Send, {Down 5}
-		Sleep, 50
-		MsgBox, all OK?
+		Sleep, 500
+		MsgBox, ticket set to hold?
 		Send, ^f ;SEARCHWINDOW_START
 		Send, {BackSpace}
 		Send, Additional comments (Customer visible)
