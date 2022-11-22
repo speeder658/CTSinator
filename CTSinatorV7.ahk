@@ -477,6 +477,16 @@ else if ticktype := "Catalog Task"
 	ticknum = %clipboard%
 	MsgBox, %ticknum%
 	Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
+	Sleep, 5000
+	chromePageWait()
+	WinGetTitle, wintitle
+	StringSplit, wintitlevars, wintitle, |, %A_Space%
+	if wintitlevars1 != "%ticknum%"
+		{
+		MsgBox, ensure you're logged in, then press OK.
+		Send, ^w
+		Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
+		}
 	return
 
 
