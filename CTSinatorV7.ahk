@@ -183,6 +183,7 @@ chromePageWait()
 					Send, {BackSpace}
 					Sleep, 1000
 					Send, Affected Software Version
+					Send, {PgUp}
 					Sleep, 1000
 					PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
 					if ErrorLevel
@@ -190,7 +191,37 @@ chromePageWait()
 						PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
 						if ErrorLevel
 							{
-							MsgBox, software not found
+							MsgBox, , ,software not found,1
+							Send, ^f
+							Sleep, 300
+							Send, Affected Software Version
+							Sleep, 300
+							Send, {PgUp}
+							Sleep, 300
+							PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+							if ErrorLevel
+								{
+								PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+								if ErrorLevel
+									{
+									Sleep, 1000
+									Send, ^a
+									Send, {BackSpace}
+									Sleep, 1000
+									Send, Affected CI
+									Send, {PgUp}
+									Sleep, 1000
+									PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+									if ErrorLevel
+										{
+										PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+										if ErrorLevel
+											{
+											MsgBox, , ,software not found,1
+											}
+										}
+									}
+								}
 							}
 						}
 					}
