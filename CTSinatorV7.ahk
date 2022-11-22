@@ -503,9 +503,12 @@ else if ticktype := "Catalog Task"
 	Send, I will close the ticket now, have a great day :)
 	return
 
-	^#!k::
-		Send, user has confirmed - software installed successfully
+^#!k::
+	Send, user has confirmed - software installed successfully
 		return
+
+^#!d:: ;d jak debilu
+	Send, I asked you to not screenshot. please read my message again.
 
 ^#!f:: ;search for string in SNOW
 	clipboard :=
@@ -515,12 +518,19 @@ else if ticktype := "Catalog Task"
 	MsgBox, %ticknum%
 	Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
 	Sleep, 5000
+
+	WinActivate, ahk_exe chrome.exe
+	WinWaitActive, ahk_exe chrome.exe
+
 	chromePageWait()
+
 	WinGetTitle, wintitle
 	StringSplit, wintitlevars, wintitle, |, %A_Space%
-	if wintitlevars1 != "%ticknum%"
+	if inStr(%wintitlevars1% , %ticknum%)
+		return
+	else
 		{
-		MsgBox, ensure you're logged in, then press OK.
+		MsgBox, --- %wintitlevars1% --- %ticknum% --- ensure you're logged in, then press OK.
 		Send, ^w
 		Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
 		}
