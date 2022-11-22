@@ -333,12 +333,13 @@ else if ticktype := "Catalog Task"
 	if (KeySth = "u")
 	{
 
-		Send, {WheelUp 3}
+		Send, {PgUp}
 		Send, ^f
 		Send, {BackSpace}
 		Sleep, 100
 		Send, State
-		Sleep, 100
+		Sleep, 300
+		Send, {PgUp}
 		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
@@ -347,9 +348,10 @@ else if ticktype := "Catalog Task"
 			}
 		else
     	MouseMove, %Px%, %Py%
-		Send, {LButton 2}
+			Sleep, 300
+		Send, {LButton}{LButton}
 		clipboard :=
-		Sleep, 100
+		Sleep, 300
 		Send, ^c
 		ClipWait
 		state := clipboard
@@ -365,16 +367,19 @@ else if ticktype := "Catalog Task"
 				MsgBox, nopeerror
 				return
 			}
+		Sleep, 300
 		Send, {Down}
-		Send, {Tab 2}
+		Sleep, 300
+		Send, {Tab}
+		Sleep, 300
 		Send, {Down}
 		Sleep, 500
 		Send, ^f
 		Send, {BackSpace}
 		Sleep, 600
 		Send, Comments and Work Notes
-		Sleep, 100
-		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
+		Sleep, 500
+		PixelSearch, Px, Py, 0, 500, 1901, 1000, 0xff9632, , Fast RGB
 		MouseMove, %Px%, %Py%
 		Send, {LButton}
 		Sleep, 500
