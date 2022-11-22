@@ -508,7 +508,7 @@ else if ticktype := "Catalog Task"
 		return
 
 ^#!d:: ;d jak debilu
-	Send, I asked you to not screenshot. please read my message again.
+	Send, I asked you not to screenshot. please read my message again.
 
 ^#!f:: ;search for string in SNOW
 	clipboard :=

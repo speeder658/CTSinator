@@ -6,6 +6,7 @@ functions:
 ctrl+windows+alt+x - panic button, press to stop script
 
 ctrl+windows+alt+g - message generator ran from a ticket main page in snow - incident or catalog task generate a message based on a ticket in service-now, works for me, might be buggy but if ironed out saves huge amounts of time
+best used with ctrl+windows+alt+e - type in the email and ctrl+windows+alt+v - type in the generated ticket message
 
 ctrl+windows+alt+h - ticket holder same as above, used for putting tickets on hold , open text box allows for options:
 u - hold for user unavailable with message "Contacted user on Teams, waiting for reply"
