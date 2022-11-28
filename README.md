@@ -43,18 +43,26 @@ u - hold for user unavailable with message "Contacted user on Teams, waiting for
 #### ctrl+windows+alt+t
 - type in "user stated issue has been resolved already, closing ticket"
 
-#### ctrl+windows+alt+s - type in "ok, I will be connecting shortly"
+#### ctrl+windows+alt+s
+- type in "ok, I will be connecting shortly"
 
-#### ctrl+windows+alt+b - type in "I'll close the ticket now, have a great day :)"
+#### ctrl+windows+alt+b
+- type in "I'll close the ticket now, have a great day :)"
 
-#### ctrl+windows+alt+k - type in "user has confirmed - software installed successfully"
+#### ctrl+windows+alt+k
+- type in "user has confirmed - software installed successfully"
 
-#### ctrl+windows+alt+d - type in "I asked you to not screenshot. please read my message again."
+#### ctrl+windows+alt+d
+- type in "I asked you to not screenshot. please read my message again."
 
-### ctrl+windows+alt+a - action menu type in options:
+### ctrl+windows+alt+a
+- action menu, type in options:
 
-##### laps - inputboxes for hostname and DC, runs powershell and finds local admin password
+##### laps
+- inputboxes for hostname and DC, runs powershell and finds local admin password
 
-##### dcu - puts a note on how to update drivers using dell comand update into your clipbaord, paste in chat
+##### dcu
+- puts a note on how to update drivers using dell comand update into your clipbaord, paste in chat
 
-##### cmrc - runs config manager remote control viewer, copy a hostname before use
+##### cmrc
+- runs config manager remote control viewer, copy a hostname before use
