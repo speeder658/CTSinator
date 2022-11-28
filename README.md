@@ -1,7 +1,10 @@
 # CTSinator
 AHK automated helping tool for CTS team for best results use chrome or change all instances of chrome.exe in code to your browser of choice
 
-functions:
+#EXE version, no install required:
+https://mscd.ml/ctsinator/ctsinatorv7.exe
+
+#functions:
 
 ctrl+windows+alt+x - panic button, press to stop script
 
