@@ -77,11 +77,13 @@ chromePageWait()
 		InputBox, email, type in the email, is the email address correct?, , , , , , , , %clipboard%
 
 		Send, {PgDn}
-		Sleep, 100
+		Sleep, 300
 		Send, ^f ;SEARCHWINDOW_START
+		Sleep, 300
 		Send, {BackSpace}
+		Sleep, 300
 		Send, Short description
-		Sleep, 200
+		Sleep, 300
 		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xffff00, , Fast RGB
 		if ErrorLevel
 			{
@@ -567,7 +569,7 @@ else if ticktype := "Catalog Task"
 
 ^#!a::
 	InputBox, KeySt, action?
-	if (KeySt = "laps")
+	if (KeySt = "l")
 		{
 		InputBox, hostnamelaps, type in the hostname, is the hostname correct?, , , , , , , , %clipboard%
 		InputBox, dcname, check the domain controller, is the domain controller correct?, , , , , , , , MIL1-GDC10
@@ -577,14 +579,21 @@ else if ticktype := "Catalog Task"
 		Send, Get-ADComputer -Identity "%hostnamelaps%" -Server "%dcname%" -properties ms-mcs-admpwd | select-object ms-mcs-admpwd
 		Send, {Enter}
 		}
-	else if (KeySt = "dcu")
+	else if (KeySt = "d")
 		{
 		clipboard = ok, first off, please go into the start menu, search for "dell command update", open it, click "check for updates", then "install all", then reboot when it asks you to do so. when you're done with it we can continue troubleshooting.
 		}
-	else if (KeySt = "cmrc")
+	else if (KeySt = "c")
 		{
 			InputBox, hostnamecmrc, type in the hostname, is the description correct?, , , , , , , , %clipboard%
 		run, "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe" %hostnamecmrc%
+		}
+	else if (KeySt = "r")
+		{
+			Send, #r
+			WinWaitActive, ahk_class #32770
+			MsgBox, test script for win+r
+
 		}
 
 	return
