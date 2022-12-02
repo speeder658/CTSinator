@@ -83,11 +83,11 @@ chromePageWait()
 		Send, {BackSpace}
 		Sleep, 300
 		Send, Short description
-		Sleep, 300
-		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xffff00, , Fast RGB
+		Sleep, 600
+		PixelSearch, Px, Py, 50, 140, 1000, 700, 0xffff00, , Fast RGB
 		if ErrorLevel
 			{
-			PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+			PixelSearch, Px, Py, 50, 140, 1000, 700, 0xff9632, , Fast RGB
 			if ErrorLevel
 				{
 				MsgBox, desc not found
@@ -544,23 +544,7 @@ else if ticktype := "Catalog Task"
 	ticknum = %clipboard%
 	MsgBox, %ticknum%
 	Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
-	Sleep, 5000
-
-	WinActivate, ahk_exe chrome.exe
-	WinWaitActive, ahk_exe chrome.exe
-
-	chromePageWait()
-
-	WinGetTitle, wintitle
-	StringSplit, wintitlevars, wintitle, |, %A_Space%
-	if inStr(%wintitlevars1% , %ticknum%)
-		return
-	else
-		{
-		MsgBox, --- %wintitlevars1% --- %ticknum% --- ensure you're logged in, then press OK.
-		Send, ^w
-		Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
-		}
+	
 	return
 
 
