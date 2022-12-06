@@ -41,6 +41,7 @@ chromePageWait()
 		Sleep, 300
 		Send, @
 		Sleep, 300
+		Send, {PgUp}{PgUp}{PgUp}
 		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
@@ -126,10 +127,10 @@ chromePageWait()
 		Send, Requested for
 		Send, {PgUp}{PgUp}{PgUp}
 		Sleep, 300
-		PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+		PixelSearch, Px, Py, 50, 190, 1000, 900, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
-			PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+			PixelSearch, Px, Py, 50, 190, 1000, 900, 0xff0000, , Fast RGB
 			if ErrorLevel
 				{
 				Sleep, 1000
@@ -138,10 +139,11 @@ chromePageWait()
 				Sleep, 1000
 				Send, Requested for
 				Sleep, 1000
-				PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff9632, , Fast RGB
+				Send, {PgUp}{PgUp}{PgUp}
+				PixelSearch, Px, Py, 50, 190, 1000, 900, 0xff9632, , Fast RGB
 				if ErrorLevel
 					{
-					PixelSearch, Px, Py, 50, 190, 1000, 700, 0xff0000, , Fast RGB
+					PixelSearch, Px, Py, 50, 190, 1000, 900, 0xff0000, , Fast RGB
 					if ErrorLevel
 						{
 						MsgBox, requested not found
@@ -289,9 +291,9 @@ if ticktype = Incident
 		Send, {BackSpace}
 		Sleep, 300
 		Send, State
-		Sleep, 300
+		Sleep, 400
 		Send, {PgUp}{PgUp}{PgUp}
-		Sleep, 300
+		Sleep, 400
 		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
@@ -544,7 +546,7 @@ else if ticktype := "Catalog Task"
 	ticknum = %clipboard%
 	MsgBox, %ticknum%
 	Run, chrome.exe "wood.service-now.com/text_search_exact_match.do?sysparm_search=%ticknum%"
-	
+
 	return
 
 
