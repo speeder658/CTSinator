@@ -85,7 +85,7 @@ chromePageWait()
 		Sleep, 300
 		Send, Short description
 		Sleep, 600
-		PixelSearch, Px, Py, 50, 140, 1000, 700, 0xffff00, , Fast RGB
+		PixelSearch, Px, Py, 50, 120, 1000, 700, 0xffff00, , Fast RGB
 		if ErrorLevel
 			{
 			PixelSearch, Px, Py, 50, 140, 1000, 700, 0xff9632, , Fast RGB
