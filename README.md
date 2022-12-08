@@ -1,4 +1,5 @@
 # CTSinator
+# only tested in chrome so far, leave at least one tab of service-now in chrome open and use hotkeys on chrome windows. Edge support might be coming.
 AHK automated helping tool for CTS team for best results use chrome or change all instances of chrome.exe in code to your browser of choice
 
 # EXE version available, no install required
