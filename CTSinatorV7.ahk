@@ -412,6 +412,8 @@ if ticktype = Incident
 			MouseMove, %Px%, %Py%
 			Send, {LButton}
 			MsgBox, enter if text box ok
+			MouseMove, %Px%, %Py%
+			Send, {LButton}
 			Send, Contacted user on Teams, waiting for reply
 			Send, {Esc}
 			}
