@@ -440,6 +440,7 @@ else if ticktype := "Catalog Task"
 		Send, State
 		Sleep, 300
 		Send, {PgUp}
+		Sleep, 300
 		PixelSearch, Px, Py, 908, 120, 1901, 577, 0xff9632, , Fast RGB
 		if ErrorLevel
 			{
